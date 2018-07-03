@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using SAP2000v16;
+using SAP2000v20;
 // interop.COM services for SAP
 using System.Runtime.InteropServices;
 
@@ -30,7 +30,7 @@ namespace SAPConnection
             //TO DO: Grab open Instance if already open!!! 
 
             //Create SAP2000 Object
-            mySAPObject = new SAP2000v16.SapObject();
+            mySAPObject = new SAP2000v20.SapObject();
 
             // get enum from Units
             eUnits Units = (eUnits)Enum.Parse(typeof(eUnits), units);
@@ -61,7 +61,7 @@ namespace SAPConnection
         {
             long ret = 0;
             //Create SAP2000 Object
-            SapObject mySAPObject = new SAP2000v16.SapObject();
+            SapObject mySAPObject = new SAP2000v20.SapObject();
             //Start Application
             mySAPObject.ApplicationStart();
             //Create SapModel object
@@ -79,11 +79,11 @@ namespace SAPConnection
             if (SapInstances.LongLength >= 1)
             {
                 SapObject Obj;
-                object getObj = ROTHelper.GetActiveObject("SAP2000v16.SapObject");
+                object getObj = ROTHelper.GetActiveObject("SAP2000v20.SapObject");
                 if (getObj == null)
                 {
                     Obj = new SapObject();
-                    getObj = ROTHelper.GetActiveObject("SAP2000v16.SapObject");
+                    getObj = ROTHelper.GetActiveObject("SAP2000v20.SapObject");
                 }
                 if (getObj != null)
                 {
